@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { stringify } from '@angular/core/src/util';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 
-interface Client {
+export interface Client {
     name: string;
     surname: string;
     address: string;
@@ -12,12 +12,12 @@ interface Client {
     country: string;
 }
 
-
 @Injectable({
     providedIn: 'root'
 })
 export class ClientsService {
-    private clients: Client[];
+    private clients: Client[] = [];
+    clientsChanged = new BehaviorSubject<Client[]>(null);
 
     constructor() {
         this.clients = [
@@ -39,7 +39,19 @@ export class ClientsService {
                 zipCode: '987654',
                 country: 'USA'
             }
-        ]
+        ];
+        console.log('service clients:');
+        console.log(this.clients);
+        this.clientsChanged.next(this.clients.slice());
+    }
+    
+    setClients(clients: Client[]) {
+        this.clients = clients;
+        this.clientsChanged.next(this.clients.slice());
+    }
+
+    getClients() {
+        return this.clients.slice();
     }
 
 

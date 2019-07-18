@@ -2,16 +2,16 @@
 
 <label for="client-select">Choose a client:</label>
 
-<select id="client-select">
-    <option *ngFor="let client of clients" [value]="client">{{ client }}</option>
+<select id="client-select" (change)="onClientChange($event)">
+    <option *ngFor="let client of clients"  [value]="client">{{ client.name }} {{ client.surname }}</option>
 </select>
 
-<div *ngIf="client">
-    <p>Name: {{ client.name }}</p>
-    <p>Surname: {{ client.surname }}</p>
-    <p>Address: {{ client.address }}</p>
-    <p>City: {{ client.city }}</p>
-    <p>State: {{ client.state }}</p>
-    <p>Zip Code: {{ client.zipCode }}</p>
-    <p>Country: {{ client.country }}</p>
+<div *ngIf="clients.length > 0">
+    <p>Name: {{ currentClient.name }}</p>
+    <p>Surname: {{ currentClient.surname }}</p>
+    <p>Address: {{ currentClient.address }}</p>
+    <p>City: {{ currentClient.city }}</p>
+    <p>State: {{ currentClient.state }}</p>
+    <p>Zip Code: {{ currentClient.zipCode }}</p>
+    <p>Country: {{ currentClient.country }}</p>
 </div>
