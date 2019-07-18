@@ -1,0 +1,17 @@
+<h2>Client</h2>
+
+<label for="client-select">Choose a client:</label>
+
+<select id="client-select">
+    <option *ngFor="let client of clients" [value]="client">{{ client }}</option>
+</select>
+
+<div *ngIf="client">
+    <p>Name: {{ client.name }}</p>
+    <p>Surname: {{ client.surname }}</p>
+    <p>Address: {{ client.address }}</p>
+    <p>City: {{ client.city }}</p>
+    <p>State: {{ client.state }}</p>
+    <p>Zip Code: {{ client.zipCode }}</p>
+    <p>Country: {{ client.country }}</p>
+</div>
