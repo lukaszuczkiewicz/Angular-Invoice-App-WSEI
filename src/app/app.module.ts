@@ -9,6 +9,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { ClientsComponent } from './clients/clients/clients.component';
 import { ClientsPositionsComponent } from './clients/clients-positions/clients-positions.component';
 import { ClientSinglePositionComponent } from './clients/client-single-position/client-single-position.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ClientSinglePositionComponent } from './clients/client-single-position/
     AppRoutingModule,
     InvoicingModule,
     HeroModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

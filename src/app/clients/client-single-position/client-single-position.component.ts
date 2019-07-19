@@ -8,8 +8,6 @@ import { Client } from '../clients.service';
 })
 export class ClientSinglePositionComponent implements OnInit {
 
-    @Input() client: Client;
-    @Input() lp: number;
     constructor() { }
 
     ngOnInit() {

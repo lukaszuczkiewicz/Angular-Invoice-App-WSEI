@@ -17,32 +17,32 @@
   <tbody>
 
     <tr *ngFor="let client of clients; let index = index"
-        (positionChanged)=handlePositionChanged($event) 
+        (change)=handlePositionChanged($event) 
         (itemRemoved)=removePosition($event)>
       <td>{{ index + 1 }}</td>
       <td>
-        <input class="form-control" type="text" name="name" [value]="client.name" />
+        <input class="form-control" type="text" name="name" [value]="client.name" [(ngModel)]=client.name/>
       </td>
       <td>
-        <input class="form-control" type="text" name="surname" [value]="client.surname" />
+        <input class="form-control" type="text" name="surname" [value]="client.surname" [(ngModel)]=client.surname />
       </td>
       <td>
-        <input class="form-control" type="text" name="address" [value]="client.address" />
+        <input class="form-control" type="text" name="address" [value]="client.address" [(ngModel)]=client.address />
       </td>
       <td>
-        <input class="form-control" type="text" name="city" [value]="client.city" />
+        <input class="form-control" type="text" name="city" [value]="client.city" [(ngModel)]=client.city />
       </td>
       <td>
-        <input class="form-control" type="text" name="state" [value]="client.state" />
+        <input class="form-control" type="text" name="state" [value]="client.state" [(ngModel)]=client.state />
       </td>
       <td>
-        <input class="form-control" type="text" name="zipCode" [value]="client.zipCode" />
+        <input class="form-control" type="text" name="zipCode" [value]="client.zipCode" [(ngModel)]=client.zipCode/>
       </td>
       <td>
-        <input class="form-control" type="text" name="country" [value]="client.country" />
+        <input class="form-control" type="text" name="country" [value]="client.country" [(ngModel)]=client.country/>
       </td>
       <td>
-        <button (click)=removePosition()>
+        <button (click)=removeClient(index)>
           <i class="fa fa-trash"></i>
         </button>
       </td>

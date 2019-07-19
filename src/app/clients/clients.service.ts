@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-
 export interface Client {
     name: string;
     surname: string;
@@ -18,7 +17,7 @@ export interface Client {
 export class ClientsService {
     private clients: Client[] = [];
     clientsChanged = new BehaviorSubject<Client[]>(null);
-
+    
     constructor() {
         this.clients = [
             {
@@ -44,15 +43,38 @@ export class ClientsService {
         console.log(this.clients);
         this.clientsChanged.next(this.clients.slice());
     }
-    
+
+    emitChanges() {
+        this.clientsChanged.next(this.clients.slice())
+    }
+
+    addClient() {
+        this.clients.push(this.createEmptyClient());
+        this.emitChanges();
+    }
+
     setClients(clients: Client[]) {
         this.clients = clients;
-        this.clientsChanged.next(this.clients.slice());
+        this.emitChanges();
     }
 
     getClients() {
         return this.clients.slice();
     }
+    removeClient(index): void {
+        this.clients.splice(index, 1);
+        this.emitChanges();
+      }
 
-
+    createEmptyClient(): Client {
+        return {
+            name: "",
+            surname: "",
+            address: "",
+            city: "",
+            state: "",
+            zipCode: "",
+            country: ""
+        }
+    }
 }

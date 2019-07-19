@@ -24,13 +24,15 @@ export class ClientsPositionsComponent implements OnInit, OnDestroy {
     }
 
     handlePositionChanged($event) {
-
+        console.log($event)
+        this.clientService.setClients(this.clients);
     }
 
-    removePosition($event) {
+    removeClient(index) {
+        this.clientService.removeClient(index);
     }
     
     addClient() {
-
+        this.clientService.addClient();
     }
 }
