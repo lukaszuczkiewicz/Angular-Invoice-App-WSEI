@@ -1,3 +1,33 @@
-<p>
-  clients-positions works!
-</p>
+<div class="col-sm">
+  <h3>Clients</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">State</th>
+        <th scope="col">Zip Code</th>
+        <th scope="col">Country</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+            <app-client-single-position 
+            *ngFor="let client of clients; let index = index" 
+            [client]="client" 
+            [lp]=index+1    
+            (positionChanged)=handlePositionChanged($event) 
+            (itemRemoved)=removePosition($event)>
+        </app-client-single-position>
+    </tbody>
+  </table>
+  <div class="invoice-positions__actions">
+    <button (click)="addClient()" type="button" class="btn btn-primary invoice-positions__action">
+      add position
+      <i class="fa fa-plus"></i>
+    </button>
+  </div>
+</div>

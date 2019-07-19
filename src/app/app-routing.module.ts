@@ -5,9 +5,9 @@ import { InvoiceComponent } from './invoicing/invoice/invoice.component';
 import { ClientsComponent } from './clients/clients/clients.component';
 
 const routes: Routes = [
-  {path: '', component: IndexComponent},
-  {path: 'invoicing', component: InvoiceComponent},
-  {path: 'clients', component: ClientsComponent},
+    {path: '', component: IndexComponent},
+    {path: 'invoicing', component: InvoiceComponent},
+    {path: 'clients', component: ClientsComponent}
 ];
 
 @NgModule({

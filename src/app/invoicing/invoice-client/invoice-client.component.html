@@ -1,17 +1,22 @@
-<h2>Client</h2>
+<div class="col-sm">
+  <h3>Client</h3>
 
-<label for="client-select">Choose a client:</label>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="client-select">Choose a client</label>
+    </div>
+    <select class="custom-select" id="client-select" (change)="onClientChange($event)">
+      <option *ngFor="let client of clients" [value]="client">{{ client.name }} {{ client.surname }}</option>
+    </select>
+  </div>
 
-<select id="client-select" (change)="onClientChange($event)">
-    <option *ngFor="let client of clients"  [value]="client">{{ client.name }} {{ client.surname }}</option>
-</select>
-
-<div *ngIf="clients.length > 0">
-    <p>Name: {{ currentClient.name }}</p>
-    <p>Surname: {{ currentClient.surname }}</p>
-    <p>Address: {{ currentClient.address }}</p>
-    <p>City: {{ currentClient.city }}</p>
-    <p>State: {{ currentClient.state }}</p>
-    <p>Zip Code: {{ currentClient.zipCode }}</p>
-    <p>Country: {{ currentClient.country }}</p>
+  <ul class="list-group" *ngIf="clients.length > 0">
+    <li class="list-group-item">Name: {{ currentClient.name }}</li>
+    <li class="list-group-item">Surname: {{ currentClient.surname }}</li>
+    <li class="list-group-item">Address: {{ currentClient.address }}</li>
+    <li class="list-group-item">City: {{ currentClient.city }}</li>
+    <li class="list-group-item">State: {{ currentClient.state }}</li>
+    <li class="list-group-item">Zip Code: {{ currentClient.zipCode }}</li>
+    <li class="list-group-item">Country: {{ currentClient.country }}</li>
+  </ul>
 </div>

@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ClientsService, Client } from '../clients.service';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-clients-positions',
-  templateUrl: './clients-positions.component.html',
-  styleUrls: ['./clients-positions.component.scss']
+    selector: 'app-clients-positions',
+    templateUrl: './clients-positions.component.html',
+    styleUrls: ['./clients-positions.component.scss']
 })
-export class ClientsPositionsComponent implements OnInit {
+export class ClientsPositionsComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+    private clients: Client[];
+    private subscription: Subscription;
+    constructor(private clientService: ClientsService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.subscription = this.clientService.clientsChanged.subscribe((data)=> {
+            this.clients = data;
+        });
+    }
 
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+
+    handlePositionChanged($event) {
+
+    }
+
+    removePosition($event) {
+    }
+    
+    addClient() {
+
+    }
 }

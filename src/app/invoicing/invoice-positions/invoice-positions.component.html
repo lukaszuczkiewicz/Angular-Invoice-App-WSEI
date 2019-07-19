@@ -1,6 +1,8 @@
-<table class="table">
+<div class="col-sm">
+    <h3>Items</h3>
+    <table class="table">
     <thead>
-      <tr>
+        <tr>
         <th scope="col">#</th>
         <th scope="col">Item name</th>
         <th scope="col">Quantity</th>
@@ -20,10 +22,11 @@
         (itemRemoved)=removePosition($event)
       ></app-single-position>
     </tbody>
-  </table>
+</table>
   <div class="invoice-positions__actions">
     <button (click)="addPosition()" type="button" class="btn btn-primary invoice-positions__action">
-      add position
+        add position
       <i class="fa fa-plus"></i>
     </button>
-  </div>
+</div>
+</div>
