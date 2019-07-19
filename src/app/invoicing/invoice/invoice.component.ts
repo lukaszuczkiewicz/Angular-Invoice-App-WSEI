@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Invoice, InvoiceSummary } from '../model/item';
+import { Client } from 'src/app/clients/clients.service';
 
 @Component({
   selector: 'app-invoice',

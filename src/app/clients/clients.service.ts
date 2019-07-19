@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 export interface Client {
     name: string;
@@ -17,7 +17,8 @@ export interface Client {
 export class ClientsService {
     private clients: Client[] = [];
     clientsChanged = new BehaviorSubject<Client[]>(null);
-    
+    currentClientSubject = new BehaviorSubject<Client>(null);
+
     constructor() {
         this.clients = [
             {
