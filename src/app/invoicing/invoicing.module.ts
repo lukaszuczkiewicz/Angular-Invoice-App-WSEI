@@ -11,9 +11,10 @@ import { LocalItemCatalog } from './model/item-catalog/local-item-catalog';
 import { HttpItemCatalog } from './model/item-catalog/http-item-catalog';
 import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.component';
 import { InvoiceClientComponent } from './invoice-client/invoice-client.component';
+import { InvoiceDateComponent } from './invoice-date/invoice-date.component';
 
 @NgModule({
-  declarations: [InvoicePositionsComponent, InvoiceComponent, SinglePositionComponent, InvoiceSummaryComponent, InvoiceClientComponent],
+  declarations: [InvoicePositionsComponent, InvoiceComponent, SinglePositionComponent, InvoiceSummaryComponent, InvoiceClientComponent, InvoiceDateComponent],
   imports: [
     CommonModule,
     FormsModule,

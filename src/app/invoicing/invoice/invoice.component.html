@@ -1,5 +1,6 @@
 <div class="invoice">
   <app-invoice-client></app-invoice-client>
+  <app-invoice-date></app-invoice-date>
   <app-invoice-positions [positions]=invoice.items (itemsChanged)=updateItems($event)></app-invoice-positions>
   <app-invoice-summary [summary]=invoiceSummary></app-invoice-summary>
 </div>
